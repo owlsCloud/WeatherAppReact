@@ -10,7 +10,7 @@ const Conditions = (props) => {
           </p>
 
           <p>
-            It is currently {1.8 * (Math.round(props.responseObj.main.temp - 273) + 32)} degrees (in F) out with{" "}
+            It is currently {1.8 * (Math.floor(props.responseObj.main.temp - 273) + 32)} degrees (in F) out with{" "}
             {props.responseObj.weather[0].description}.
           </p>
         </div>
