@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import "./App.css";
+import Forecast from "./components/Forecast/Forecast";
 function App() {
+  const [city, setCity] = useState("");
+  const handleChange = (e) => {
+    setCity(e.target.value);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{ textAlign: "center" }}>
+      <h1>React Weather App</h1>
+
+      <main>
+        <p>Enter a city</p>
+        <input name="city" onChange={handleChange} value={city} style={{ maxWidth: "300px" }} />
+        <Forecast city={city} />
+      </main>
     </div>
   );
 }
